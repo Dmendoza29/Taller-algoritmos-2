@@ -10,10 +10,12 @@ import javax.swing.table.DefaultTableModel;
 
 public class Datos extends javax.swing.JFrame {
 
+    public static String contadorPrecios;
+
     DefaultTableModel fila_tabla;
-    int contador;
     Metodos llenado;
     String[] vector;
+    public static String prueba;
 
     public Datos() {
         initComponents();
@@ -31,7 +33,6 @@ public class Datos extends javax.swing.JFrame {
         fila_tabla.addColumn("Telefono");
 
         tblDatos.setModel(fila_tabla);
-        contador = 0;
 
         tblDatos.setDefaultEditor(Object.class, null);
 
@@ -245,51 +246,62 @@ public class Datos extends javax.swing.JFrame {
     private void btnAgregarDiagnosticoCotizacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarDiagnosticoCotizacionActionPerformed
         // TODO add your handling code here:
         boolean verificar = txtMostrarTotal.getText().toString().isEmpty();
-        double contador;
+        double contadorPrecios;
 
         if (verificar) {
-            contador = 0;
+            contadorPrecios = 0;
         } else {
-            contador = Double.parseDouble(txtMostrarTotal.getText());
+            contadorPrecios = Double.parseDouble(txtMostrarTotal.getText());
         }
         String seleccion = cmbDiagnostico.getSelectedItem().toString();
 
         if (seleccion.equals("Cambio de aceite y filtro de aceite.")) {
             txtAreaDatosDiagnoticos.append("Cambio de aceite y filtro de aceite $250.000\n");
-            contador = contador + 250000;
+            contadorPrecios = contadorPrecios + 250000;
         }
         if (seleccion.equals("Cambio del filtro de aire.")) {
             txtAreaDatosDiagnoticos.append("Cambio del filtro de aire $100.000\n");
-            contador = contador + 100000;
+            contadorPrecios = contadorPrecios + 100000;
         }
         if (seleccion.equals("Mantenimiento programado.")) {
             txtAreaDatosDiagnoticos.append("Mantenimiento programado $450.000\n");
-            contador = contador + 450000;
+            contadorPrecios = contadorPrecios + 450000;
         }
         if (seleccion.equals("Cambio llantas nuevas.")) {
             txtAreaDatosDiagnoticos.append("Cambio de llantas nuevas $320.000\n");
-            contador = contador + 320000;
+            contadorPrecios = contadorPrecios + 320000;
         }
         if (seleccion.equals("Servicio/reparación de frenos.")) {
             txtAreaDatosDiagnoticos.append("Servicio/reparacion de frenos $180.000\n");
-            contador = contador + 180000;
+            contadorPrecios = contadorPrecios + 180000;
         }
         if (seleccion.equals("Seleccionar")) {
             JOptionPane.showMessageDialog(this, "Ingrese una opcion valida");
         }
-        txtMostrarTotal.setText("" + contador);
+        txtMostrarTotal.setText("" + contadorPrecios);
+        String otro;
+        otro = String.valueOf(contadorPrecios);
+        prueba = otro;
     }//GEN-LAST:event_btnAgregarDiagnosticoCotizacionActionPerformed
 
     private void btnPagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagarActionPerformed
         // TODO add your handling code here:
-        
-        String id_Para_Pagos = txtIngreseID.getText();
-        
-        llenado.busquedaId(HEIGHT);
-        
-        
-        FrmPasarelaPagos pasarela_pagos = new FrmPasarelaPagos();
-        pasarela_pagos.setVisible(true);
+        String busquedaID = txtIngreseID.getText();
+
+        if (busquedaID.isEmpty()) {
+            tblDatos.clearSelection();
+        } else {
+            for (int i = 0; i < tblDatos.getRowCount(); i++) {
+                if (tblDatos.getValueAt(i, 3).equals(busquedaID)) {
+                    FrmPasarelaPagos pasarela_pagos = new FrmPasarelaPagos();
+                    pasarela_pagos.setVisible(true);
+
+                } else {
+                    JOptionPane.showMessageDialog(this, "El id esta incorrecto");
+                }
+
+            }
+        }
     }//GEN-LAST:event_btnPagarActionPerformed
 
     private void txtMostrarTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMostrarTotalActionPerformed
