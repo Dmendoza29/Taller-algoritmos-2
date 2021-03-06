@@ -19,7 +19,7 @@ public class FrmEfectivo extends javax.swing.JFrame {
      */
     public FrmEfectivo() {
         initComponents();
-        
+
     }
 
     /**
@@ -161,16 +161,37 @@ public class FrmEfectivo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
-        //Dato recibido del otro frame.
-        /*String otro;
+
+        JOptionPane.showMessageDialog(this, "Pago realizado existosamente!!\n"
+                + "Ticket Generado"
+                + "Cambio: ");
+
+    }//GEN-LAST:event_btnAceptarActionPerformed
+
+    private void txtEfectivoEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEfectivoEntradaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEfectivoEntradaActionPerformed
+
+    private void txtSubtotalCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtSubtotalCaretUpdate
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_txtSubtotalCaretUpdate
+
+    private void txtSubtotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSubtotalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSubtotalActionPerformed
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        // TODO add your handling code here: 
+        String otro;
         otro = String.valueOf(Datos.prueba);
-        txtSubtotal.setText(otro);*/
-        
+        txtSubtotal.setText(otro);
 
         double iva = 0, valor_pagar = 0, cambio = 0;
 
-        //Entrada
-        double subTotal = Double.parseDouble(txtSubtotal.getText());
+        double subTotal = 0;
+        subTotal = Double.parseDouble(otro);
+
         //Proceso Iva
         iva = subTotal * 0.19;
         txtIva.setText("" + iva);//imprime
@@ -182,28 +203,6 @@ public class FrmEfectivo extends javax.swing.JFrame {
 
         cambio = efectivoEntrada - valor_pagar;
         txtCambio.setText("" + cambio);
-        JOptionPane.showMessageDialog(this, "Pago realizado existosamente!!\n"
-                + "Ticket Generado");
-
-    }//GEN-LAST:event_btnAceptarActionPerformed
-
-    private void txtEfectivoEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEfectivoEntradaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtEfectivoEntradaActionPerformed
-
-    private void txtSubtotalCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtSubtotalCaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSubtotalCaretUpdate
-
-    private void txtSubtotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSubtotalActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSubtotalActionPerformed
-
-    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-        // TODO add your handling code here:
-        String otro;
-        otro = String.valueOf(Datos.prueba);
-        txtSubtotal.setText(otro);
     }//GEN-LAST:event_formWindowActivated
 
     /**
