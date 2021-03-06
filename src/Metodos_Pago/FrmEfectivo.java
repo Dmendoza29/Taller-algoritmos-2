@@ -19,6 +19,7 @@ public class FrmEfectivo extends javax.swing.JFrame {
      */
     public FrmEfectivo() {
         initComponents();
+        
     }
 
     /**
@@ -44,6 +45,11 @@ public class FrmEfectivo extends javax.swing.JFrame {
         lblMostrar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         jLabel1.setText("Valor a pagar:");
 
@@ -155,9 +161,11 @@ public class FrmEfectivo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
-        String otro;
+        //Dato recibido del otro frame.
+        /*String otro;
         otro = String.valueOf(Datos.prueba);
-        txtSubtotal.setText(otro);
+        txtSubtotal.setText(otro);*/
+        
 
         double iva = 0, valor_pagar = 0, cambio = 0;
 
@@ -190,6 +198,13 @@ public class FrmEfectivo extends javax.swing.JFrame {
     private void txtSubtotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSubtotalActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSubtotalActionPerformed
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        // TODO add your handling code here:
+        String otro;
+        otro = String.valueOf(Datos.prueba);
+        txtSubtotal.setText(otro);
+    }//GEN-LAST:event_formWindowActivated
 
     /**
      * @param args the command line arguments

@@ -56,6 +56,7 @@ public class Datos extends javax.swing.JFrame {
         vector[2] = llenado.getMarca_auto();
         vector[3] = Integer.toString(llenado.getID());
         vector[4] = Integer.toString(llenado.getTelefono());
+        
         fila_tabla.addRow(vector);
         txtNombre.setText("");
         txtApellido.setText("");
@@ -286,6 +287,7 @@ public class Datos extends javax.swing.JFrame {
 
     private void btnPagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagarActionPerformed
         // TODO add your handling code here:
+        //Metodo pagar efectivo
         String busquedaID = txtIngreseID.getText();
 
         if (busquedaID.isEmpty()) {
