@@ -13,11 +13,13 @@ public class Datos extends javax.swing.JFrame {
     public static String contadorPrecios;
 
     DefaultTableModel fila_tabla;
-    Metodos llenado;
-    String[] vector;
+    int contadorM;
+    Metodos llenado[];
     public static String prueba;
 
     public Datos() {
+
+        llenado = new Metodos[1000];
         initComponents();
 
         this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
@@ -34,30 +36,26 @@ public class Datos extends javax.swing.JFrame {
 
         tblDatos.setModel(fila_tabla);
 
-        tblDatos.setDefaultEditor(Object.class, null);
+        contadorM = 0;
 
     }
 
     public void agregar() {
-        String nombre, apellido, auto;
-        int ID, telefono;
-        nombre = txtNombre.getText();
-        apellido = txtApellido.getText();
-        auto = txtMarca_Auto.getText();
-        ID = Integer.parseInt(txtID.getText());
-        telefono = Integer.parseInt(txtTelefono.getText());
+        llenado[contadorM] = new Metodos(txtNombre.getText(),
+                txtApellido.getText(),
+                txtMarca_Auto.getText(),
+                Integer.parseInt(txtID.getText()),
+                Integer.parseInt(txtTelefono.getText()));
 
-        llenado = new Metodos(nombre, apellido, auto, ID, telefono);
+        fila_tabla.setRowCount(contadorM + 1);
+        tblDatos.setValueAt(llenado[contadorM].getNombres(), contadorM, 0);
+        tblDatos.setValueAt(llenado[contadorM].getApellido(), contadorM, 1);
+        tblDatos.setValueAt(llenado[contadorM].getMarca_auto(), contadorM, 2);
+        tblDatos.setValueAt(llenado[contadorM].getID(), contadorM, 3);
+        tblDatos.setValueAt(llenado[contadorM].getTelefono(), contadorM, 4);
 
-        //vector
-        vector = new String[5];
-        vector[0] = llenado.getNombres();
-        vector[1] = llenado.getApellido();
-        vector[2] = llenado.getMarca_auto();
-        vector[3] = Integer.toString(llenado.getID());
-        vector[4] = Integer.toString(llenado.getTelefono());
-        
-        fila_tabla.addRow(vector);
+        contadorM++;
+
         txtNombre.setText("");
         txtApellido.setText("");
         txtID.setText("");
@@ -294,7 +292,7 @@ public class Datos extends javax.swing.JFrame {
             tblDatos.clearSelection();
         } else {
             for (int i = 0; i < tblDatos.getRowCount(); i++) {
-                if (tblDatos.getValueAt(i, 3).equals(busquedaID)) {
+                if (tblDatos.getValueAt(i, 4).equals(busquedaID)) {
                     FrmPasarelaPagos pasarela_pagos = new FrmPasarelaPagos();
                     pasarela_pagos.setVisible(true);
 
