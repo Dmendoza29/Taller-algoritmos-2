@@ -286,6 +286,7 @@ public class Datos extends javax.swing.JFrame {
     private void btnPagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagarActionPerformed
         // TODO add your handling code here:
         //Metodo pagar efectivo
+        boolean verificacionTabla = tblDatos.getSelectedRows().toString().isEmpty();
         String busquedaID = txtIngreseID.getText();
 
         if (busquedaID.isEmpty()) {
@@ -293,11 +294,12 @@ public class Datos extends javax.swing.JFrame {
         } else {
             for (int i = 0; i < tblDatos.getRowCount(); i++) {
                 if (tblDatos.getValueAt(i, 4).equals(busquedaID)) {
-                    FrmPasarelaPagos pasarela_pagos = new FrmPasarelaPagos();
-                    pasarela_pagos.setVisible(true);
+                    System.out.println(verificacionTabla);
+                    /*FrmPasarelaPagos pasarela_pagos = new FrmPasarelaPagos();
+                    pasarela_pagos.setVisible(true);*/
 
                 } else {
-                    JOptionPane.showMessageDialog(this, "El id esta incorrecto");
+                    /*JOptionPane.showMessageDialog(this, "El id esta incorrecto");*/
                 }
 
             }
