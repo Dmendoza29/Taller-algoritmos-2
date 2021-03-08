@@ -64,5 +64,4 @@ public class Metodos {
     public void setTelefono(int telefono) {
         this.telefono = telefono;
     }
-
 }

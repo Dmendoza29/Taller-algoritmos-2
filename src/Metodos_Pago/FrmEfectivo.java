@@ -188,7 +188,6 @@ public class FrmEfectivo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
-
         JOptionPane.showMessageDialog(this, "Pago realizado existosamente!!\n"
                 + "Ticket Generado");
 
@@ -214,7 +213,6 @@ public class FrmEfectivo extends javax.swing.JFrame {
         otro = String.valueOf(Datos.prueba);
         txtSubtotal.setText(otro);
 
-        //double iva = 0, valor_pagar = 0, cambio = 0;
         double subTotal = 0;
         subTotal = Double.parseDouble(otro);
 

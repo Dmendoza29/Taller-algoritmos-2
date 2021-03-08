@@ -15,7 +15,6 @@ public class Datos extends javax.swing.JFrame {
     DefaultTableModel fila_tabla;
     int contadorM;
     Metodos llenado[];
-
     int filaSeleccionada;
     public static String prueba;
 
