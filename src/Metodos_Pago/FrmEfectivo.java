@@ -232,8 +232,6 @@ public class FrmEfectivo extends javax.swing.JFrame {
             cambio = efectivoEntrada - valor_pagar;
             txtCambio.setText("" + cambio);
         }
-        /*cambio = efectivoEntrada - valor_pagar;
-        txtCambio.setText("" + cambio);*/
     }//GEN-LAST:event_formWindowActivated
 
     private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed

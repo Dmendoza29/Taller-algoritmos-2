@@ -15,6 +15,7 @@ public class Datos extends javax.swing.JFrame {
     DefaultTableModel fila_tabla;
     int contadorM;
     Metodos llenado[];
+
     int filaSeleccionada;
     public static String prueba;
 
@@ -103,7 +104,7 @@ public class Datos extends javax.swing.JFrame {
         jTextArea1.setRows(5);
         jScrollPane3.setViewportView(jTextArea1);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
