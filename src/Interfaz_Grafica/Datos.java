@@ -15,6 +15,7 @@ public class Datos extends javax.swing.JFrame {
     DefaultTableModel fila_tabla;
     int contadorM;
     Metodos llenado[];
+    int filaSeleccionada;
     public static String prueba;
 
     public Datos() {
@@ -94,8 +95,9 @@ public class Datos extends javax.swing.JFrame {
         txtAreaDatosDiagnoticos = new javax.swing.JTextArea();
         btnPagar = new javax.swing.JButton();
         txtMostrarTotal = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        txtIngreseID = new javax.swing.JTextField();
+        lblNombreMostrar = new javax.swing.JLabel();
+        lblCliente = new javax.swing.JLabel();
+        btnSeleccionar = new javax.swing.JButton();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -105,6 +107,11 @@ public class Datos extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        tblDatos = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int colIndex){
+                return false;
+            }
+        };
         tblDatos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -172,7 +179,7 @@ public class Datos extends javax.swing.JFrame {
                 btnAgregarDiagnosticoCotizacionActionPerformed(evt);
             }
         });
-        jPanel3.add(btnAgregarDiagnosticoCotizacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 90, 80, -1));
+        jPanel3.add(btnAgregarDiagnosticoCotizacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 90, 80, -1));
 
         jLabel8.setText("Diagnostico");
         jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
@@ -190,7 +197,7 @@ public class Datos extends javax.swing.JFrame {
                 btnPagarActionPerformed(evt);
             }
         });
-        jPanel3.add(btnPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 40, 80, -1));
+        jPanel3.add(btnPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 220, 80, -1));
 
         txtMostrarTotal.setEnabled(false);
         txtMostrarTotal.addCaretListener(new javax.swing.event.CaretListener() {
@@ -204,18 +211,20 @@ public class Datos extends javax.swing.JFrame {
             }
         });
         jPanel3.add(txtMostrarTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 250, 90, -1));
+        jPanel3.add(lblNombreMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, 290, 20));
 
-        jLabel7.setText("Ingrese su Id:");
-        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, -1, -1));
-
-        txtIngreseID.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtIngreseIDActionPerformed(evt);
-            }
-        });
-        jPanel3.add(txtIngreseID, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 150, -1));
+        lblCliente.setText("Cliente:");
+        jPanel3.add(lblCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 40, 490, 290));
+
+        btnSeleccionar.setText("Seleccionar");
+        btnSeleccionar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSeleccionarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnSeleccionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 550, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -227,7 +236,7 @@ public class Datos extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 563, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 593, Short.MAX_VALUE)
         );
 
         pack();
@@ -285,25 +294,8 @@ public class Datos extends javax.swing.JFrame {
 
     private void btnPagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagarActionPerformed
         // TODO add your handling code here:
-        //Metodo pagar efectivo
-        boolean verificacionTabla = tblDatos.getSelectedRows().toString().isEmpty();
-        String busquedaID = txtIngreseID.getText();
-
-        if (busquedaID.isEmpty()) {
-            tblDatos.clearSelection();
-        } else {
-            for (int i = 0; i < tblDatos.getRowCount(); i++) {
-                if (tblDatos.getValueAt(i, 4).equals(busquedaID)) {
-                    System.out.println(verificacionTabla);
-                    /*FrmPasarelaPagos pasarela_pagos = new FrmPasarelaPagos();
-                    pasarela_pagos.setVisible(true);*/
-
-                } else {
-                    /*JOptionPane.showMessageDialog(this, "El id esta incorrecto");*/
-                }
-
-            }
-        }
+        FrmPasarelaPagos pasarela_pagos = new FrmPasarelaPagos();
+        pasarela_pagos.setVisible(true);
     }//GEN-LAST:event_btnPagarActionPerformed
 
     private void txtMostrarTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMostrarTotalActionPerformed
@@ -315,9 +307,14 @@ public class Datos extends javax.swing.JFrame {
 
     }//GEN-LAST:event_txtMostrarTotalCaretUpdate
 
-    private void txtIngreseIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIngreseIDActionPerformed
+    private void btnSeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtIngreseIDActionPerformed
+        filaSeleccionada = tblDatos.getSelectedRow();
+        String nombre = tblDatos.getValueAt(filaSeleccionada, 0).toString();
+        String apellido = tblDatos.getValueAt(filaSeleccionada, 1).toString();
+        lblNombreMostrar.setText(nombre.concat(" " + apellido));
+        //lblNombreMostrar.setText(tblDatos.getValueAt(filaSeleccionada, 1).toString());
+    }//GEN-LAST:event_btnSeleccionarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -357,6 +354,7 @@ public class Datos extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregarDiagnosticoCotizacion;
     private javax.swing.JButton btnPagar;
+    private javax.swing.JButton btnSeleccionar;
     private javax.swing.JButton btnagregar;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> cmbDiagnostico;
@@ -366,7 +364,6 @@ public class Datos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -375,11 +372,12 @@ public class Datos extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JLabel lblCliente;
+    private javax.swing.JLabel lblNombreMostrar;
     private javax.swing.JTable tblDatos;
     private javax.swing.JTextField txtApellido;
     private javax.swing.JTextArea txtAreaDatosDiagnoticos;
     private javax.swing.JTextField txtID;
-    private javax.swing.JTextField txtIngreseID;
     private javax.swing.JTextField txtMarca_Auto;
     private javax.swing.JTextField txtMostrarTotal;
     private javax.swing.JTextField txtNombre;
