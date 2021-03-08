@@ -314,7 +314,6 @@ public class Datos extends javax.swing.JFrame {
         String nombre = tblDatos.getValueAt(filaSeleccionada, 0).toString();
         String apellido = tblDatos.getValueAt(filaSeleccionada, 1).toString();
         lblNombreMostrar.setText(nombre.concat(" " + apellido));
-        //lblNombreMostrar.setText(tblDatos.getValueAt(filaSeleccionada, 1).toString());
     }//GEN-LAST:event_btnSeleccionarActionPerformed
 
     /**

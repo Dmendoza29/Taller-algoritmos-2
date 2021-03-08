@@ -5,10 +5,6 @@
  */
 package Herencia;
 
-import java.awt.AWTEventMulticaster;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-
 /**
  *
  * @author Administrador
@@ -24,7 +20,7 @@ public class Metodos {
     public Metodos(String nombres, String apellido, String marca_auto, int ID, int telefono) {
         this.nombres = nombres;
         this.apellido = apellido;
-        //this.marca_auto = marca_auto;
+        this.marca_auto = marca_auto;
         this.ID = ID;
         this.telefono = telefono;
     }
