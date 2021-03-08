@@ -16,5 +16,12 @@ public class Marca_Vehiculos extends Metodos {
         super(nombres, apellido, marca_auto, ID, telefono);
         this.marcaVehiculos = marcaVehiculos;
     }
-    
+
+    public String getMarcaVehiculos() {
+        return marcaVehiculos;
+    }
+
+    public void setMarcaVehiculos(String marcaVehiculos) {
+        this.marcaVehiculos = marcaVehiculos;
+    }
 }
