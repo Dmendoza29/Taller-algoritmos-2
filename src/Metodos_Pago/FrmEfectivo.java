@@ -48,7 +48,7 @@ public class FrmEfectivo extends javax.swing.JFrame {
         lblMostrar = new javax.swing.JLabel();
         btnAtras = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
@@ -234,6 +234,8 @@ public class FrmEfectivo extends javax.swing.JFrame {
 
     private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
         // TODO add your handling code here:
+        Datos atras = new Datos();
+        atras.setVisible(true);
     }//GEN-LAST:event_btnAtrasActionPerformed
 
     private void txtCambioCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtCambioCaretUpdate

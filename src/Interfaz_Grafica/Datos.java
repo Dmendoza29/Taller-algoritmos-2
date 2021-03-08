@@ -15,12 +15,14 @@ public class Datos extends javax.swing.JFrame {
     DefaultTableModel fila_tabla;
     int contadorM;
     Metodos llenado[];
+    Marca_Vehiculo m[];
     int filaSeleccionada;
     public static String prueba;
 
     public Datos() {
 
         llenado = new Metodos[1000];
+        m = new Marca_Vehiculo[1000];
         initComponents();
 
         this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
@@ -44,14 +46,18 @@ public class Datos extends javax.swing.JFrame {
     public void agregar() {
         llenado[contadorM] = new Metodos(txtNombre.getText(),
                 txtApellido.getText(),
-                txtMarca_Auto.getText(),
+                //txtMarca_Auto.getText(),
+                Integer.parseInt(txtID.getText()),
+                Integer.parseInt(txtTelefono.getText()));
+        m[contadorM] = new Marca_Vehiculo(txtMarca_Auto.getText(), txtNombre.getText(),
+                txtApellido.getText(),
                 Integer.parseInt(txtID.getText()),
                 Integer.parseInt(txtTelefono.getText()));
 
         fila_tabla.setRowCount(contadorM + 1);
         tblDatos.setValueAt(llenado[contadorM].getNombres(), contadorM, 0);
         tblDatos.setValueAt(llenado[contadorM].getApellido(), contadorM, 1);
-        tblDatos.setValueAt(llenado[contadorM].getMarca_auto(), contadorM, 2);
+        tblDatos.setValueAt(m[contadorM].getMarca(), contadorM, 2);
         tblDatos.setValueAt(llenado[contadorM].getID(), contadorM, 3);
         tblDatos.setValueAt(llenado[contadorM].getTelefono(), contadorM, 4);
 

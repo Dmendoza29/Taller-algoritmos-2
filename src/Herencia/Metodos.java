@@ -5,25 +5,27 @@
  */
 package Herencia;
 
+import java.util.Objects;
+
 /**
  *
  * @author Administrador
  */
 public class Metodos {
 
-    public String nombres;
-    public String apellido;
-    private String marca_auto;
-    public int ID;
-    public int telefono;
+    private String nombres;
+    private String apellido;
+    //private String marca_auto;
+    private int ID;
+    private int telefono;
 
-    public Metodos(String nombres, String apellido, String marca_auto, int ID, int telefono) {
+    public Metodos(String nombres, String apellido, int ID, int telefono) {
         this.nombres = nombres;
         this.apellido = apellido;
-        this.marca_auto = marca_auto;
         this.ID = ID;
         this.telefono = telefono;
     }
+    
 
     public String getNombres() {
         return nombres;
@@ -41,14 +43,6 @@ public class Metodos {
         this.apellido = apellido;
     }
 
-    public String getMarca_auto() {
-        return marca_auto;
-    }
-
-    public void setMarca_auto(String marca_auto) {
-        this.marca_auto = marca_auto;
-    }
-
     public int getID() {
         return ID;
     }
@@ -64,4 +58,48 @@ public class Metodos {
     public void setTelefono(int telefono) {
         this.telefono = telefono;
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Metodos other = (Metodos) obj;
+        if (this.ID != other.ID) {
+            return false;
+        }
+        if (this.telefono != other.telefono) {
+            return false;
+        }
+        if (!Objects.equals(this.nombres, other.nombres)) {
+            return false;
+        }
+        if (!Objects.equals(this.apellido, other.apellido)) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Metodos{" + "nombres=" + nombres + ", apellido=" + apellido + ", ID=" + ID + ", telefono=" + telefono + '}';
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone(); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }
