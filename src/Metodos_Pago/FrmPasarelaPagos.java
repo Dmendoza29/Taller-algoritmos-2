@@ -36,6 +36,7 @@ public class FrmPasarelaPagos extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Metodos de pago");
+        setUndecorated(true);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Metodos de pago disponibles", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP));
 

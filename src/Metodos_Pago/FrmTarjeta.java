@@ -46,6 +46,7 @@ public class FrmTarjeta extends javax.swing.JFrame {
         txtCedulaPersona = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         cmbBanco.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Banco de Bogota", "Banco Popular", "Banco BBVA", "Bancolombia", "Banco Colpatria", "Nequi" }));
 
@@ -82,9 +83,8 @@ public class FrmTarjeta extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnAceptar)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtFFecha)
-                                .addComponent(txtCVV, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtFFecha)
+                            .addComponent(txtCVV, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

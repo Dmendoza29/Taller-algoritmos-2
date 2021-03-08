@@ -103,6 +103,7 @@ public class Datos extends javax.swing.JFrame {
         txtMostrarTotal = new javax.swing.JTextField();
         lblNombreMostrar = new javax.swing.JLabel();
         lblCliente = new javax.swing.JLabel();
+        btnLimpiar = new javax.swing.JButton();
         btnSeleccionar = new javax.swing.JButton();
 
         jTextArea1.setColumns(20);
@@ -222,6 +223,14 @@ public class Datos extends javax.swing.JFrame {
         lblCliente.setText("Cliente:");
         jPanel3.add(lblCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
 
+        btnLimpiar.setText("Limpiar");
+        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiarActionPerformed(evt);
+            }
+        });
+        jPanel3.add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 180, -1, -1));
+
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 40, 490, 290));
 
         btnSeleccionar.setText("Seleccionar");
@@ -321,6 +330,12 @@ public class Datos extends javax.swing.JFrame {
         lblNombreMostrar.setText(nombre.concat(" " + apellido));
     }//GEN-LAST:event_btnSeleccionarActionPerformed
 
+    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+        // TODO add your handling code here:
+        txtAreaDatosDiagnoticos.setText("");
+        txtMostrarTotal.setText("");
+    }//GEN-LAST:event_btnLimpiarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -358,6 +373,7 @@ public class Datos extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregarDiagnosticoCotizacion;
+    private javax.swing.JButton btnLimpiar;
     private javax.swing.JButton btnPagar;
     private javax.swing.JButton btnSeleccionar;
     private javax.swing.JButton btnagregar;
